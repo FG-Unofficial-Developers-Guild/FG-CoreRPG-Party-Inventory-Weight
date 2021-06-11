@@ -9,4 +9,4 @@ It has been tested with the CoreRPG, Pathfinder 1e and D&D 3.5E rulesets.
 # Features
 Total weight of all items in party inventory will have weight totalled in a new field.
 
-If you are also using my Coins Weight extension, coins in the party inventory will also their weights totalled.
+If you are also using [my Coins Weight extension](https://www.fantasygrounds.com/forums/showthread.php?67228-CoreRPG-Coins-Weight), coins in the party inventory will also have their weight added to the total.
