@@ -78,4 +78,16 @@
 			</label_ps>
 		</sheetdata>
 	</windowclass>
+	<windowclass name="ps_parcelitem" merge="join">
+		<sheetdata>
+			<number_dropadd name="weight">
+				<anchored height="20">
+					<right parent="rightanchor" anchor="left" relation="current" offset="-10"/>
+					<left parent="name" anchor="right" offset="10"/>
+					<top parent="name" anchor="top" />
+				</anchored>
+				<hideonvalue>0</hideonvalue>
+			</number_dropadd>
+		</sheetdata>
+	</windowclass>
 </root>
