@@ -21,7 +21,7 @@
 			local function calculateCoinWeight(node_party_sheet)
 				local node_party_coins = node_party_sheet.getChild('treasureparcelcoinlist')
 				local number_coins_total = 0
-				if CoinsWeight then
+				if CoinsWeight and CoinsWeight.aDenominations then
 					for _,node_party_coin in pairs(node_party_coins.getChildren()) do
 						local string_coin_description = DB.getValue(node_party_coin, 'description', ''):lower()
 						if CoinsWeight.aDenominations[string_coin_description] then
