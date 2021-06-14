@@ -82,7 +82,7 @@
 
 			<!-- Weight column -->
 			<label_ps name="label_parcelitem_weight">
-				<anchored to="label_parcelitem_assign" position="left" offset="15" width="15" />
+				<anchored to="label_parcelitem_assign" position="left" offset="10" width="15" />
 				<static textres="ps_label_invweight" />
 				<center />
 			</label_ps>
