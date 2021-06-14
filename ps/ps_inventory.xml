@@ -76,6 +76,12 @@
 				<static>lb</static>
 				<gmvisibleonly />
 			</label_ps>
+
+			<label_ps name="label_parcelitem_weight">
+				<anchored to="items" position="aboveright" offset="155,7" width="15" />
+				<static textres="ps_label_invweight" />
+				<center />
+			</label_ps>
 		</sheetdata>
 	</windowclass>
 

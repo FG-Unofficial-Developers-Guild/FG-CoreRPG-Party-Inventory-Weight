@@ -13,5 +13,7 @@
 	<base>
 		<!-- Party sheet -->
 		<includefile source="ps/ps_inventory.xml" />
+		<!-- Strings -->
+		<string name="ps_label_invweight">Lb</string>
 	</base>
 </root>
