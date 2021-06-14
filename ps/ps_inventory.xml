@@ -78,11 +78,12 @@
 			</label_ps>
 		</sheetdata>
 	</windowclass>
+
 	<windowclass name="ps_parcelitem" merge="join">
 		<sheetdata>
 			<basicstring name="name">
 				<anchored position="insidetopleft" offset="45,2">
-					<right parent="rightanchor" anchor="left" relation="current" offset="-35"/>
+					<right parent="rightanchor" anchor="left" relation="current" offset="-40"/>
 				</anchored>
 				<multilinespacing>20</multilinespacing>
 				<empty textres="library_recordtype_empty_item"/>
