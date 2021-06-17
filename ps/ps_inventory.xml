@@ -46,8 +46,11 @@
 				end
 				if Session.IsHost then
 					DB.addHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
+					DB.addHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
+					
 					DB.addHandler("partysheet.treasureparcelitemlist.*.count", "onUpdate", updateWeight)
 					DB.addHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
+					DB.addHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)
 				end
 				updateWeight()
 			end
@@ -57,8 +60,11 @@
 				end
 				if Session.IsHost then
 					DB.removeHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
+					DB.removeHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
+					
 					DB.removeHandler("partysheet.treasureparcelitemlist.*.count", "onUpdate", updateWeight)
 					DB.removeHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
+					DB.removeHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)
 				end
 			end
 		</script>
