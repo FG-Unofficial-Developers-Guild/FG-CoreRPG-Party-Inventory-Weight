@@ -101,11 +101,15 @@
 				<anchored position="insidetopleft" offset="45,2">
 					<right parent="rightanchor" anchor="left" relation="current" offset="-40"/>
 				</anchored>
+				<tabtarget prev="nonid_name" />
+				<tabtarget next="weight" />
 			</basicstring>
 			<basicstring name="nonid_name">
 				<anchored position="insidetopleft" offset="45,2">
 					<right parent="rightanchor" anchor="left" relation="current" offset="-40"/>
 				</anchored>
+				<tabtarget prev="nonid_name" />
+				<tabtarget next="weight" />
 			</basicstring>
 			<number_dropadd name="weight">
 				<anchored height="20" width="20">
@@ -113,7 +117,11 @@
 					<top parent="name" anchor="top" />
 				</anchored>
 				<hideonvalue>0</hideonvalue>
+				<tabtarget next="assign" prev="name" />
 			</number_dropadd>
+			<basicstring name="assign">
+				<tabtarget prev="weight" />
+			</basicstring>
 		</sheetdata>
 	</windowclass>
 </root>
