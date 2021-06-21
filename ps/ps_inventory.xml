@@ -117,6 +117,7 @@
 					<top parent="name" anchor="top" />
 				</anchored>
 				<hideonvalue>0</hideonvalue>
+				<center />
 				<tabtarget next="assign" prev="name" />
 			</number_dropadd>
 			<basicstring name="assign">
