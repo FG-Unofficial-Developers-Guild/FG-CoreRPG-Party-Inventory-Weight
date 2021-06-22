@@ -8,6 +8,21 @@
 <root>
 	<windowclass name="ps_inventory" merge="join">
 		<script>
+			local function round(number, decimals)
+				local n = 10^(decimals or 0)
+				number = number * n
+				if number >= 0 then number = math.floor(number + 0.5) else number = math.ceil(number - 0.5) end
+				return number / n
+			end
+			local function determineRounding(nTotalWeight)
+				if nTotalWeight >= 100 then
+					return 0
+				elseif nTotalWeight >= 10 then
+					return 1
+				else
+					return 2
+				end 
+			end
 			local function calculateItemWeight(node_party_sheet)
 				local node_party_items = node_party_sheet.getChild('treasureparcelitemlist')
 				local number_weight_total = 0
@@ -35,16 +50,19 @@
 			end
 			local function updateWeight()
 				local node_party_sheet = getDatabaseNode()
-				local number_item_weight = calculateItemWeight(node_party_sheet)
-				local number_coin_weight = calculateCoinWeight(node_party_sheet)
-				local number_total_weight = number_item_weight + number_coin_weight
-				DB.setValue(node_party_sheet, 'partyinventoryweight', 'number', number_total_weight)
+				local number_weight = calculateItemWeight(node_party_sheet) + calculateCoinWeight(node_party_sheet)
+				number_weight = round(number_weight, determineRounding(number_weight))
+				DB.setValue(node_party_sheet, 'partyinventoryweight', 'number', number_weight)
 			end
-			function onInit()
-				if super and super.onInit then
-					super.onInit()
-				end
-				if Session.IsHost then
+			local function manageHandlers(bRemove)
+				if bRemove then
+					DB.removeHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
+					DB.removeHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
+					
+					DB.removeHandler("partysheet.treasureparcelitemlist.*.count", "onUpdate", updateWeight)
+					DB.removeHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
+					DB.removeHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)
+				else
 					DB.addHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
 					DB.addHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
 					
@@ -69,9 +87,21 @@
 			end
 		</script>
 		<sheetdata>
+			<windowlist name="coins">
+				<anchored position="insidetopleft" offset="5,42">
+					<right anchor="center" offset="-90" />
+				</anchored>
+			</windowlist>
+
+			<basicnumber name="sellpercentage">
+				<anchored to="coins" width="30">
+					<left anchor="right" offset="17" />
+				</anchored>
+			</basicnumber>
+
 			<!-- Total weight -->
 			<basicnumber name="partyinventoryweight">
-				<anchored to="coins" width="20" height="20">
+				<anchored to="coins" width="30" height="20">
 					<left anchor="right" offset="17" />
 					<top anchor="center" offset="-60" />
 				</anchored>
