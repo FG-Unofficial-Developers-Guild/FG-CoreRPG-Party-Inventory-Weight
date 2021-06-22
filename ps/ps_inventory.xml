@@ -70,6 +70,14 @@
 					DB.addHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
 					DB.addHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)
 				end
+			end
+			function onInit()
+				if super and super.onInit then
+					super.onInit()
+				end
+				if Session.IsHost then
+					manageHandlers()
+				end
 				updateWeight()
 			end
 			function onClose()
@@ -77,12 +85,7 @@
 					super.onClose()
 				end
 				if Session.IsHost then
-					DB.removeHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
-					DB.removeHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
-					
-					DB.removeHandler("partysheet.treasureparcelitemlist.*.count", "onUpdate", updateWeight)
-					DB.removeHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
-					DB.removeHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)
+					manageHandlers(true)
 				end
 			end
 		</script>
