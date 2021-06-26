@@ -21,6 +21,15 @@
 					<bottom offset="-35" />
 				</anchored>
 			</frame_parcel>
+
+			<!-- Total weight -->
+			<basicnumber name="parcelweight">
+				<anchored to="contentframe" width="30" height="20">
+					<left anchor="left" offset="-1" />
+					<bottom anchor="bottom" offset="10" />
+				</anchored>
+				<readonly />
+			</basicnumber>
 			<!-- <label>
 				<anchored to="coinframe" position="insidetopleft" offset="0,-5" width="55" />
 				<static>#</static>
