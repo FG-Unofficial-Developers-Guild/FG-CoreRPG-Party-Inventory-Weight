@@ -14,6 +14,9 @@
 		<!-- Party sheet -->
 		<includefile source="ps/ps_inventory.xml" />
 
+		<!-- Campaign records -->
+		<includefile source="campaign/record_parcel.xml" />
+
 		<!-- Strings -->
 		<string name="ps_label_invweight">Lb</string>
 	</base>
