@@ -30,6 +30,16 @@
 				</anchored>
 				<readonly />
 			</basicnumber>
+
+			<!-- Total value -->
+			<basicnumber name="parcelvalue">
+				<anchored to="coinframe" width="30" height="20">
+					<right anchor="right" offset="1" />
+					<bottom parent="parcelweight" anchor="bottom" />
+				</anchored>
+				<readonly />
+				<gmvisibleonly />
+			</basicnumber>
 			<!-- <label>
 				<anchored to="coinframe" position="insidetopleft" offset="0,-5" width="55" />
 				<static>#</static>
