@@ -18,7 +18,7 @@
 				<anchored to="contentframe" width="165">
 					<top />
 					<left />
-					<bottom offset="-35" />
+					<bottom offset="-30" />
 				</anchored>
 			</frame_parcel>
 
