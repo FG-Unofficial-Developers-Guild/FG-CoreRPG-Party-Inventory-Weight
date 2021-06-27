@@ -70,8 +70,8 @@
 			</basicnumber>
 			<!-- total weight label -->
 			<label name="label_parcelweight">
-				<anchored to="parcelweight" width="30" height="20">
-					<left anchor="right" offset="2" />
+				<anchored to="parcelweight" width="50" height="20">
+					<left anchor="right" offset="5" />
 					<bottom anchor="bottom" offset="0" />
 				</anchored>
 				<static textres="ref_label_listweight" />
@@ -85,10 +85,9 @@
 				<readonly />
 				<gmvisibleonly />
 			</basicnumber>
-			
 			<label name="label_parcelweight">
-				<anchored to="parcelweight" width="30" height="20">
-					<right anchor="left" offset="-2" />
+				<anchored to="parcelweight" width="50" height="20">
+					<right anchor="left" offset="-5" />
 					<bottom anchor="bottom" offset="0" />
 				</anchored>
 				<static textres="ref_label_cost" />
