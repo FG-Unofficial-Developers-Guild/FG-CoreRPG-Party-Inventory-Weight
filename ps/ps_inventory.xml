@@ -8,64 +8,26 @@
 <root>
 	<windowclass name="ps_inventory" merge="join">
 		<script>
-			local function round(number, decimals)
-				local n = 10^(decimals or 0)
-				number = number * n
-				if number >= 0 then number = math.floor(number + 0.5) else number = math.ceil(number - 0.5) end
-				return number / n
-			end
-			local function determineRounding(nTotalWeight)
-				if nTotalWeight >= 100 then
-					return 0
-				elseif nTotalWeight >= 10 then
-					return 1
-				else
-					return 2
-				end 
-			end
-			local function calculateItemWeight(node_party_sheet)
-				local node_party_items = node_party_sheet.getChild('treasureparcelitemlist')
-				local number_weight_total = 0
-				for _,node_party_item in pairs(node_party_items.getChildren()) do
-					local number_item_count = DB.getValue(node_party_item, 'count', 0)
-					local number_item_weight = DB.getValue(node_party_item, 'weight', 0)
-					number_weight_total = number_weight_total + (number_item_count * number_item_weight) 
-				end
-				return number_weight_total
-			end
-			local function calculateCoinWeight(node_party_sheet)
-				local node_party_coins = node_party_sheet.getChild('treasureparcelcoinlist')
-				local number_coins_total = 0
-				if CoinsWeight and CoinsWeight.aDenominations then
-					for _,node_party_coin in pairs(node_party_coins.getChildren()) do
-						local string_coin_description = DB.getValue(node_party_coin, 'description', ''):lower()
-						if CoinsWeight.aDenominations[string_coin_description] then
-							number_coins_total = number_coins_total + DB.getValue(node_party_coin, 'amount', 0) * CoinsWeight.aDenominations[string_coin_description]['nWeight']
-						else
-							number_coins_total = number_coins_total + DB.getValue(node_party_coin, 'amount', 0) * CoinsWeight.nDefaultCoinWeight
-						end
-					end
-				end
-				return number_coins_total
-			end
 			local function updateWeight()
 				local node_party_sheet = getDatabaseNode()
-				local number_weight = calculateItemWeight(node_party_sheet) + calculateCoinWeight(node_party_sheet)
-				number_weight = round(number_weight, determineRounding(number_weight))
-				DB.setValue(node_party_sheet, 'partyinventoryweight', 'number', number_weight)
+				local node_party_coins = node_party_sheet.getChild('treasureparcelcoinlist')
+				local node_party_items = node_party_sheet.getChild('treasureparcelitemlist')
+
+				local number_weight = ParcelWeight.calculateItemWeight(node_party_items) + ParcelWeight.calculateCoinWeight(node_party_coins)
+				DB.setValue(node_party_sheet, 'partyinventoryweight', 'number', ParcelWeight.round(number_weight))
 			end
 			local function manageHandlers(bRemove)
 				if bRemove then
 					DB.removeHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
 					DB.removeHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
-					
+
 					DB.removeHandler("partysheet.treasureparcelitemlist.*.count", "onUpdate", updateWeight)
 					DB.removeHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
 					DB.removeHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)
 				else
 					DB.addHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
 					DB.addHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
-					
+
 					DB.addHandler("partysheet.treasureparcelitemlist.*.count", "onUpdate", updateWeight)
 					DB.addHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
 					DB.addHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)

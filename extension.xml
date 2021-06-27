@@ -3,18 +3,24 @@
 <root version="3.1">
 	<properties>
 		<name>Party Inventory Weight</name>
-		<version>1.3</version>
+		<version>1.4</version>
 		<author>bmos</author>
 		<description>Adds weight to party sheet inventory</description>
 	</properties>
 
-	<announcement text="CoreRPG - Party Item Weight v1.3\nFor Fantasy Grounds v4.1+\nBy bmos" font="emotefont"/>
+	<announcement text="CoreRPG - Party Item Weight v1.4\nFor Fantasy Grounds v4.1+\nBy bmos" font="emotefont"/>
 
 	<base>
 		<!-- Party sheet -->
 		<includefile source="ps/ps_inventory.xml" />
 
+		<!-- Campaign records -->
+		<includefile source="campaign/record_parcel.xml" />
+
 		<!-- Strings -->
 		<string name="ps_label_invweight">Lb</string>
+
+		<!-- Scripts -->
+		<script name="ParcelWeight" file="scripts/parcelweight.lua" />
 	</base>
 </root>
