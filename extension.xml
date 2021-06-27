@@ -19,5 +19,8 @@
 
 		<!-- Strings -->
 		<string name="ps_label_invweight">Lb</string>
+
+		<!-- Scripts -->
+		<script name="ParcelWeight" file="scripts/parcelweight.lua" />
 	</base>
 </root>
