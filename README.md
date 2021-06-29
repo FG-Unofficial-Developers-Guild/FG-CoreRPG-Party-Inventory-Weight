@@ -14,5 +14,5 @@ The total weight of all items in party inventory will be shown in a new field.
 If you are also using [v1.5+](https://github.com/bmos/FG-CoreRPG-Coins-Weight/releases) of [my Coins Weight extension](https://www.fantasygrounds.com/forums/showthread.php?67228-CoreRPG-Coins-Weight), coins in the party inventory will also have their weight added to the total. If not, only items will have their weight counted.
 
 # Example Images
-![party inventory](https://user-images.githubusercontent.com/1916835/123843905-6133f100-d8e0-11eb-8a27-c414a2ee5c7b.png)
-![parcels](https://user-images.githubusercontent.com/1916835/123844319-de5f6600-d8e0-11eb-8363-dbca1fc06db1.png)
+![party inventory](https://user-images.githubusercontent.com/1916835/123844723-5ded3500-d8e1-11eb-8c63-8cc0c04ee77e.png)
+![parcels](https://user-images.githubusercontent.com/1916835/123844744-634a7f80-d8e1-11eb-99d5-b71bf28f1fcc.png)
