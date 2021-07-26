@@ -85,12 +85,12 @@
 				<readonly />
 				<gmvisibleonly />
 			</basicnumber>
-			<label name="label_parcelweight">
-				<anchored to="parcelweight" width="50" height="20">
+			<label name="label_parcelvalue">
+				<anchored to="parcelvalue" width="50" height="20">
 					<right anchor="left" offset="-5" />
 					<bottom anchor="bottom" offset="0" />
 				</anchored>
-				<static textres="ref_label_cost" />
+				<static textres="ref_label_listvalue" />
 			</label> -->
 		</sheetdata>
 	</windowclass>
