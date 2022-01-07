@@ -14,7 +14,7 @@
 				local node_party_items = node_party_sheet.getChild('treasureparcelitemlist')
 
 				local number_weight = ParcelWeight.calculateItemWeight(node_party_items) + ParcelWeight.calculateCoinWeight(node_party_coins)
-				DB.setValue(node_party_sheet, 'partyinventoryweight', 'number', ParcelWeight.round(number_weight))
+				DB.setValue(node_party_sheet, 'totalweight', 'number', ParcelWeight.round(number_weight))
 			end
 			local function manageHandlers(bRemove)
 				if bRemove then
@@ -54,30 +54,44 @@
 		<sheetdata>
 			<windowlist name="coins">
 				<anchored position="insidetopleft" offset="5,42">
-					<right anchor="center" offset="-90" />
+					<right anchor="center" offset="-95" />
 				</anchored>
 			</windowlist>
 
 			<basicnumber name="sellpercentage">
 				<anchored to="coins" width="30">
-					<left anchor="right" offset="17" />
+					<left anchor="right" offset="14" />
 				</anchored>
 			</basicnumber>
 
+			<!-- Max weight -->
+			<basicnumber name="maxweight">
+				<anchored to="sellpercentage" width="30" height="20">
+					<left anchor="left" offset="0" />
+					<top anchor="center" offset="-75" />
+				</anchored>
+			</basicnumber>
+
+			<!-- Max weight label -->
+			<label_ps name="label_maxweight">
+				<anchored to="maxweight" position="righthigh" offset="5,0" />
+				<static>Max</static>
+			</label_ps>
+
 			<!-- Total weight -->
-			<basicnumber name="partyinventoryweight">
-				<anchored to="coins" width="30" height="20">
-					<left anchor="right" offset="17" />
-					<top anchor="center" offset="-60" />
+			<basicnumber name="totalweight">
+				<anchored to="maxweight" width="30" height="20">
+					<left anchor="left" offset="0" />
+					<top anchor="center" offset="-35" />
 				</anchored>
 				<readonly />
 				<gmvisibleonly />
 			</basicnumber>
 
-			<!-- total weight label -->
-			<label_ps name="label_partyinventoryweight">
-				<anchored to="partyinventoryweight" position="righthigh" offset="5,0" />
-				<static>lb</static>
+			<!-- Total weight label -->
+			<label_ps name="label_totalweight">
+				<anchored to="totalweight" position="righthigh" offset="5,0" />
+				<static>Total</static>
 				<gmvisibleonly />
 			</label_ps>
 
