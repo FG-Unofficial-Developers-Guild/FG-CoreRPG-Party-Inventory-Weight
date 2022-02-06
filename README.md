@@ -1,5 +1,5 @@
 # CoreRPG Party Inventory Weight
-This extension adds a weight total to the party sheet inventory and parcels.
+This extension adds a weight total to the party inventory and to treasure parcels.
 
 # Compatibility and Instructions
 This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.1.13 (2022-01-05).
