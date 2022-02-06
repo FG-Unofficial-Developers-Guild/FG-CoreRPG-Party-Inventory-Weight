@@ -54,7 +54,7 @@
 		<sheetdata>
 			<windowlist name="coins">
 				<anchored position="insidetopleft" offset="5,42">
-					<right anchor="center" offset="-95" />
+					<right anchor="center" offset="-100" />
 				</anchored>
 			</windowlist>
 
