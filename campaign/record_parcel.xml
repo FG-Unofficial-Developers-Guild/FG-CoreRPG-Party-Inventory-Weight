@@ -53,9 +53,7 @@
 		</script>
 		<sheetdata>
 			<frame_parcel name="coinframe">
-				<anchored to="contentframe" width="165">
-					<top />
-					<left />
+				<anchored>
 					<bottom offset="-30" />
 				</anchored>
 			</frame_parcel>
