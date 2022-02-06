@@ -60,9 +60,9 @@
 
 			<!-- Total weight -->
 			<basicnumber name="parcelweight">
-				<anchored to="contentframe" width="30" height="20">
-					<left anchor="left" offset="-1" />
-					<bottom anchor="bottom" offset="10" />
+				<anchored width="30" height="20">
+					<left anchor="left" offset="22" />
+					<bottom anchor="bottom" offset="-20" />
 				</anchored>
 				<readonly />
 			</basicnumber>

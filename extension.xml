@@ -16,6 +16,7 @@
 
 		<!-- Campaign records -->
 		<includefile source="campaign/record_parcel.xml" />
+		<includefile ruleset="4E" source="campaign/record_parcel_4e.xml" />
 
 		<!-- Strings -->
 		<string name="ps_label_invweight">Lb</string>
