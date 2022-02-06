@@ -70,6 +70,7 @@
 					<left anchor="left" offset="0" />
 					<top anchor="center" offset="-75" />
 				</anchored>
+			<script file="ps/scripts/ps_weight_encumbrance.lua" />
 			</basicnumber>
 
 			<!-- Max weight label -->
@@ -86,6 +87,7 @@
 				</anchored>
 				<readonly />
 				<gmvisibleonly />
+			<script file="ps/scripts/ps_weight_encumbrance.lua" />
 			</basicnumber>
 
 			<!-- Total weight label -->
