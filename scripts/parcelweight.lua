@@ -1,4 +1,4 @@
--- 
+--
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 
@@ -7,7 +7,7 @@ function calculateItemWeight(node_parcel_items)
 	for _,node_party_item in pairs(node_parcel_items.getChildren()) do
 		local number_item_count = DB.getValue(node_party_item, 'count', 0)
 		local number_item_weight = DB.getValue(node_party_item, 'weight', 0)
-		number_weight_total = number_weight_total + (number_item_count * number_item_weight) 
+		number_weight_total = number_weight_total + (number_item_count * number_item_weight)
 	end
 	return number_weight_total
 end
@@ -34,7 +34,7 @@ local function determineRounding(nTotalWeight)
 		return 1
 	else
 		return 2
-	end 
+	end
 end
 
 function round(number)
