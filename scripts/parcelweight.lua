@@ -20,8 +20,7 @@ function calculateCoinWeight(node_parcel_coins)
 			local string_coin_description = DB.getValue(node_party_coin, 'description', ''):lower()
 			if CoinsWeight.aDenominations[string_coin_description] then
 				number_coins_total = number_coins_total +
-								                     (DB.getValue(node_party_coin, 'amount', 0) *
-												                     CoinsWeight.aDenominations[string_coin_description]['nWeight'])
+								                     (DB.getValue(node_party_coin, 'amount', 0) * CoinsWeight.aDenominations[string_coin_description]['nWeight'])
 			else
 				number_coins_total = number_coins_total + (DB.getValue(node_party_coin, 'amount', 0) * CoinsWeight.nDefaultCoinWeight)
 			end
