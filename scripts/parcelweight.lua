@@ -15,15 +15,11 @@ end
 -- luacheck: globals calculateCoinWeight
 function calculateCoinWeight(node_parcel_coins)
 	local number_coins_total = 0
-	if CoinsWeight and CoinsWeight.aDenominations then
+	if OptionsManager.isOption("CURR", "on") then
 		for _, node_party_coin in pairs(node_parcel_coins.getChildren()) do
 			local string_coin_description = DB.getValue(node_party_coin, 'description', ''):lower()
-			if CoinsWeight.aDenominations[string_coin_description] then
-				number_coins_total = number_coins_total +
-								                     (DB.getValue(node_party_coin, 'amount', 0) * CoinsWeight.aDenominations[string_coin_description]['nWeight'])
-			else
-				number_coins_total = number_coins_total + (DB.getValue(node_party_coin, 'amount', 0) * CoinsWeight.nDefaultCoinWeight)
-			end
+			number_coins_total = number_coins_total +
+													(DB.getValue(node_party_coin, 'amount', 0) * CurrencyManager.getCurrencyRecord(string_coin_description)['nWeight'])
 		end
 	end
 	return number_coins_total
