@@ -25,18 +25,19 @@ function calculateCoinWeight(node_parcel_coins)
 	return number_coins_total
 end
 
-local function determineRounding(nTotalWeight)
-	if nTotalWeight >= 100 then
-		return 0
-	elseif nTotalWeight >= 10 then
-		return 1
-	else
-		return 2
-	end
-end
-
 -- luacheck: globals round
 function round(number)
+
+	local function determineRounding(nTotalWeight)
+		if nTotalWeight >= 100 then
+			return 0
+		elseif nTotalWeight >= 10 then
+			return 1
+		else
+			return 2
+		end
+	end
+
 	local n = 10 ^ (determineRounding(number) or 0)
 	number = number * n
 	if number >= 0 then

@@ -1,8 +1,7 @@
-function onInit()
-	if super and super.onInit then super.onInit() end
-	onValueChanged()
-
-end
+--
+--	Please see the LICENSE.md file included with this distribution for attribution and copyright information.
+--
+-- luacheck: globals onValueChanged
 
 function onValueChanged()
 	if super and super.onValueChanged then super.onValueChanged() end
@@ -21,4 +20,10 @@ function onValueChanged()
 	else
 		window.totalweight.setColor(ColorManager.COLOR_FULL) -- black
 	end
+end
+
+function onInit()
+	if super and super.onInit then super.onInit() end
+
+	onValueChanged()
 end

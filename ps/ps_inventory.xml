@@ -7,50 +7,7 @@
 
 <root>
 	<windowclass name="ps_inventory" merge="join">
-		<script>
-			local function updateWeight()
-				local node_party_sheet = getDatabaseNode()
-				local node_party_coins = node_party_sheet.getChild('treasureparcelcoinlist')
-				local node_party_items = node_party_sheet.getChild('treasureparcelitemlist')
-
-				local number_weight = ParcelWeight.calculateItemWeight(node_party_items) + ParcelWeight.calculateCoinWeight(node_party_coins)
-				DB.setValue(node_party_sheet, 'totalweight', 'number', ParcelWeight.round(number_weight))
-			end
-			local function manageHandlers(bRemove)
-				if bRemove then
-					DB.removeHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
-					DB.removeHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
-
-					DB.removeHandler("partysheet.treasureparcelitemlist.*.count", "onUpdate", updateWeight)
-					DB.removeHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
-					DB.removeHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)
-				else
-					DB.addHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
-					DB.addHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
-
-					DB.addHandler("partysheet.treasureparcelitemlist.*.count", "onUpdate", updateWeight)
-					DB.addHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
-					DB.addHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)
-				end
-			end
-			function onInit()
-				if super and super.onInit then
-					super.onInit()
-				end
-				if Session.IsHost then
-					manageHandlers()
-				end
-				updateWeight()
-			end
-			function onClose()
-				if super and super.onClose then
-					super.onClose()
-				end
-				if Session.IsHost then
-					manageHandlers(true)
-				end
-			end
-		</script>
+		<script file="ps/scripts/ps_inventory.lua" />
 		<sheetdata>
 			<windowlist name="coins">
 				<anchored position="insidetopleft" offset="5,42">
