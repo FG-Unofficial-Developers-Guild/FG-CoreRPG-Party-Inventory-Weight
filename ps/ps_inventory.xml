@@ -20,7 +20,7 @@
 			</basicnumber>
 			<label_fieldtop name="maxweight_label">
 				<anchored to="maxweight" />
-				<static>Max</static>
+				<static textres="ps_label_maxweight" />
 			</label_fieldtop>
 
 			<!-- Total weight -->
@@ -35,7 +35,7 @@
 			</basicnumber>
 			<label_fieldtop name="totalweight_label">
 				<anchored to="totalweight" />
-				<static>Total</static>
+				<static textres="ps_label_totalweight" />
 			</label_fieldtop>
 
 			<!-- Weight column label -->
