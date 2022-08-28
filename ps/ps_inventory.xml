@@ -9,60 +9,45 @@
 	<windowclass name="ps_inventory" merge="join">
 		<script file="ps/scripts/ps_inventory.lua" />
 		<sheetdata>
-			<windowlist name="coins">
-				<anchored position="insidetopleft" offset="5,42">
-					<right anchor="center" offset="-100" />
-				</anchored>
-			</windowlist>
-
-			<basicnumber name="sellpercentage">
-				<anchored to="coins" width="30">
-					<left anchor="right" offset="14" />
-				</anchored>
-			</basicnumber>
-
 			<!-- Max weight -->
 			<basicnumber name="maxweight">
 				<anchored to="sellpercentage" width="30" height="20">
-					<left anchor="left" offset="0" />
-					<top anchor="center" offset="-75" />
+					<left />
+					<top anchor="bottom" relation="relative" offset="20" />
 				</anchored>
-			<script file="ps/scripts/ps_weight_encumbrance.lua" />
+				<script file="ps/scripts/ps_weight_encumbrance.lua" />
+				<gmvisibleonly />
 			</basicnumber>
-
-			<!-- Max weight label -->
-			<label_ps name="label_maxweight">
-				<anchored to="maxweight" position="righthigh" offset="5,0" />
+			<label_fieldtop name="maxweight_label">
+				<anchored to="maxweight" />
 				<static>Max</static>
-			</label_ps>
+			</label_fieldtop>
 
 			<!-- Total weight -->
 			<basicnumber name="totalweight">
-				<anchored to="maxweight" width="30" height="20">
-					<left anchor="left" offset="0" />
-					<top anchor="center" offset="-35" />
+				<anchored to="sellpercentage" width="30" height="20">
+					<left />
+					<top anchor="bottom" relation="relative" offset="20" />
 				</anchored>
 				<readonly />
 				<gmvisibleonly />
 			<script file="ps/scripts/ps_weight_encumbrance.lua" />
 			</basicnumber>
-
-			<!-- Total weight label -->
-			<label_ps name="label_totalweight">
-				<anchored to="totalweight" position="righthigh" offset="5,0" />
+			<label_fieldtop name="totalweight_label">
+				<anchored to="totalweight" />
 				<static>Total</static>
-				<gmvisibleonly />
-			</label_ps>
+			</label_fieldtop>
 
-			<!-- Weight column -->
+			<!-- Weight column label -->
 			<label_ps name="label_parcelitem_weight">
-				<anchored to="label_parcelitem_assign" position="left" offset="10" width="15" />
+				<anchored to="label_parcelitem_assign" position="left" offset="12" width="15" />
 				<static textres="ps_label_invweight" />
 				<center />
 			</label_ps>
 		</sheetdata>
 	</windowclass>
 
+	<!-- Adjust spacing of ps inventory fields -->
 	<windowclass name="ps_parcelitem" merge="join">
 		<sheetdata>
 			<basicstring name="name">
