@@ -15,11 +15,11 @@ end
 -- luacheck: globals calculateCoinWeight
 function calculateCoinWeight(node_parcel_coins)
 	local number_coins_total = 0
-	if OptionsManager.isOption("CURR", "on") then
+	if OptionsManager.isOption('CURR', 'on') then
 		for _, node_party_coin in pairs(node_parcel_coins.getChildren()) do
 			local string_coin_description = DB.getValue(node_party_coin, 'description', ''):lower()
-			number_coins_total = number_coins_total +
-													(DB.getValue(node_party_coin, 'amount', 0) * CurrencyManager.getCurrencyRecord(string_coin_description)['nWeight'])
+			number_coins_total = number_coins_total
+				+ (DB.getValue(node_party_coin, 'amount', 0) * CurrencyManager.getCurrencyRecord(string_coin_description)['nWeight'])
 		end
 	end
 	return number_coins_total
@@ -27,7 +27,6 @@ end
 
 -- luacheck: globals round
 function round(number)
-
 	local function determineRounding(nTotalWeight)
 		if nTotalWeight >= 100 then
 			return 0

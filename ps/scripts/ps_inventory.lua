@@ -15,27 +15,25 @@ end
 local function manageHandlers(bRemove)
 	if Session.IsHost then
 		if bRemove then
-			DB.removeHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
-			DB.removeHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
+			DB.removeHandler('partysheet.treasureparcelcoinlist.*', 'onChildUpdate', updateWeight)
+			DB.removeHandler('partysheet.treasureparcelcoinlist', 'onChildDeleted', updateWeight)
 
-			DB.removeHandler("partysheet.treasureparcelitemlist.*.count", "onUpdate", updateWeight)
-			DB.removeHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
-			DB.removeHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)
+			DB.removeHandler('partysheet.treasureparcelitemlist.*.count', 'onUpdate', updateWeight)
+			DB.removeHandler('partysheet.treasureparcelitemlist.*.weight', 'onUpdate', updateWeight)
+			DB.removeHandler('partysheet.treasureparcelitemlist', 'onChildDeleted', updateWeight)
 		else
-			DB.addHandler("partysheet.treasureparcelcoinlist.*", "onChildUpdate", updateWeight)
-			DB.addHandler("partysheet.treasureparcelcoinlist", "onChildDeleted", updateWeight)
+			DB.addHandler('partysheet.treasureparcelcoinlist.*', 'onChildUpdate', updateWeight)
+			DB.addHandler('partysheet.treasureparcelcoinlist', 'onChildDeleted', updateWeight)
 
-			DB.addHandler("partysheet.treasureparcelitemlist.*.count", "onUpdate", updateWeight)
-			DB.addHandler("partysheet.treasureparcelitemlist.*.weight", "onUpdate", updateWeight)
-			DB.addHandler("partysheet.treasureparcelitemlist", "onChildDeleted", updateWeight)
+			DB.addHandler('partysheet.treasureparcelitemlist.*.count', 'onUpdate', updateWeight)
+			DB.addHandler('partysheet.treasureparcelitemlist.*.weight', 'onUpdate', updateWeight)
+			DB.addHandler('partysheet.treasureparcelitemlist', 'onChildDeleted', updateWeight)
 		end
 	end
 end
 
 function onInit()
-	if super and super.onInit then
-		super.onInit()
-	end
+	if super and super.onInit then super.onInit() end
 
 	manageHandlers()
 
@@ -43,9 +41,7 @@ function onInit()
 end
 
 function onClose()
-	if super and super.onClose then
-		super.onClose()
-	end
+	if super and super.onClose then super.onClose() end
 
 	manageHandlers(true)
 end
