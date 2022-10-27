@@ -18,8 +18,10 @@ function calculateCoinWeight(node_parcel_coins)
 	if OptionsManager.isOption('CURR', 'on') then
 		for _, node_party_coin in pairs(node_parcel_coins.getChildren()) do
 			local string_coin_description = DB.getValue(node_party_coin, 'description', ''):lower()
-			number_coins_total = number_coins_total
-				+ (DB.getValue(node_party_coin, 'amount', 0) * CurrencyManager.getCurrencyRecord(string_coin_description)['nWeight'])
+			local nCurrencyWeight = CurrencyManager.getCurrencyRecord(string_coin_description)['nWeight'] or 0
+			local nCurrencyCount = DB.getValue(node_party_coin, 'amount', 0)
+
+			number_coins_total = number_coins_total + (nCurrencyCount * nCurrencyWeight)
 		end
 	end
 	return number_coins_total
