@@ -4,7 +4,7 @@
 -- luacheck: globals calculateItemWeight
 function calculateItemWeight(node_parcel_items)
 	local number_weight_total = 0
-	for _, node_party_item in pairs(node_parcel_items.getChildren()) do
+	for _, node_party_item in pairs(DB.getChildren(node_parcel_items)) do
 		local number_item_count = DB.getValue(node_party_item, 'count', 0)
 		local number_item_weight = DB.getValue(node_party_item, 'weight', 0)
 		number_weight_total = number_weight_total + (number_item_count * number_item_weight)
@@ -16,7 +16,7 @@ end
 function calculateCoinWeight(node_parcel_coins)
 	local number_coins_total = 0
 	if OptionsManager.isOption('CURR', 'on') then
-		for _, node_party_coin in pairs(node_parcel_coins.getChildren()) do
+		for _, node_party_coin in pairs(DB.getChildren(node_parcel_coins)) do
 			local string_coin_description = DB.getValue(node_party_coin, 'description', ''):lower()
 			local nCurrencyWeight = CurrencyManager.getCurrencyRecord(string_coin_description)['nWeight'] or 0
 			local nCurrencyCount = DB.getValue(node_party_coin, 'amount', 0)
