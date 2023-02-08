@@ -40,8 +40,6 @@ function round(number)
 
 	local n = 10 ^ (determineRounding(number) or 0)
 	number = number * n
-	if number < 0 then
-		return math.ceil(number - 0.5) / n
-	end
+	if number < 0 then return math.ceil(number - 0.5) / n end
 	return math.floor(number + 0.5) / n
 end
