@@ -3,12 +3,12 @@
 <root version="3.1">
 	<properties>
 		<name>Feature: Party Inventory Weight</name>
-		<version>1.6</version>
+		<version>1.7</version>
 		<author>bmos</author>
 		<description>Adds weight to party sheet inventory</description>
 	</properties>
 
-	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?69117-CoreRPG-Party-Item-Weight\rParty Item Weight v1.6\nFor Fantasy Grounds v4.2+\nBy bmos" font="emotefont"/>
+	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?69117-CoreRPG-Party-Item-Weight\rParty Item Weight v1.7\nFor Fantasy Grounds v4.2+\nBy bmos" font="emotefont"/>
 
 	<base>
 		<!-- Party sheet -->
