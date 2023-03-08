@@ -4,7 +4,7 @@
 This extension adds a weight total to the party inventory and to treasure parcels.
 
 # Compatibility and Instructions
-This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.3.3 (2023-02-23).
+This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) v4.3.5 (2023-03-07).
 
 It has been tested with the CoreRPG, Pathfinder 1e and D&D 3.5E rulesets.
 
