@@ -18,7 +18,9 @@ function calculateCoinWeight(node_parcel_coins)
 	if not OptionsManager.isOption('CURR', 'on') then return 0 end
 	for _, node_party_coin in ipairs(DB.getChildList(node_parcel_coins)) do
 		local string_coin_description = DB.getValue(node_party_coin, 'description', ''):lower()
-		local nCurrencyWeight = CurrencyManager.getCurrencyRecord(string_coin_description)['nWeight'] or 0
+		local tCurrencyRecord = CurrencyManager.getCurrencyRecord(string_coin_description) or {}
+		if not tCurrencyRecord['nWeight'] then Debug.console('No weight found for currency: ' .. string_coin_description) end
+		local nCurrencyWeight = tCurrencyRecord['nWeight'] or 0
 		local nCurrencyCount = DB.getValue(node_party_coin, 'amount', 0)
 
 		number_coins_total = number_coins_total + (nCurrencyCount * nCurrencyWeight)
