@@ -8,7 +8,7 @@
 		<description>Adds weight to party sheet inventory</description>
 	</properties>
 
-	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?69117-CoreRPG-Party-Item-Weight\rParty Item Weight v1.7-hotfix.1\nFor Fantasy Grounds v4.2+\nBy bmos" font="emotefont"/>
+	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?69117-CoreRPG-Party-Item-Weight\rParty Item Weight v1.8\nFor Fantasy Grounds v4.2+\nBy bmos" font="emotefont"/>
 
 	<base>
 		<!-- Party sheet -->

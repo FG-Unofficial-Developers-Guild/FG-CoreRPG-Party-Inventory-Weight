@@ -16,7 +16,6 @@
 					<top anchor="bottom" relation="relative" offset="20" />
 				</anchored>
 				<script file="ps/scripts/ps_weight_encumbrance.lua" />
-				<gmvisibleonly />
 			</basicnumber>
 			<label_fieldtop name="maxweight_label">
 				<anchored to="maxweight" />
@@ -30,7 +29,6 @@
 					<top anchor="bottom" relation="relative" offset="20" />
 				</anchored>
 				<readonly />
-				<gmvisibleonly />
 			<script file="ps/scripts/ps_weight_encumbrance.lua" />
 			</basicnumber>
 			<label_fieldtop name="totalweight_label">
