@@ -19,7 +19,7 @@
 		<includefile ruleset="4E" source="campaign/record_parcel_4e.xml" />
 
 		<!-- Strings -->
-		<string name="ps_label_invweight">Lb</string>
+		<string name="ps_label_invweight">Wt</string>
 		<string name="ps_label_totalweight">Total</string>
 		<string name="ps_label_maxweight">Max</string>
 
