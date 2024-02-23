@@ -4,7 +4,9 @@
 -- luacheck: globals onValueChanged
 
 function onValueChanged()
-	if super and super.onValueChanged then super.onValueChanged() end
+	if super and super.onValueChanged then
+		super.onValueChanged()
+	end
 
 	local nMax = window.maxweight.getValue() or 0
 	if nMax > 0 then
@@ -23,7 +25,9 @@ function onValueChanged()
 end
 
 function onInit()
-	if super and super.onInit then super.onInit() end
+	if super and super.onInit then
+		super.onInit()
+	end
 
 	onValueChanged()
 end
