@@ -14,7 +14,7 @@
 				</anchored>
 			</sub_content_framed_groupbox_top>
 			<sub_content_framed_groupbox_top name="sub_header_weight">
-				<anchored >
+				<anchored>
 					<top parent="sub_header" anchor="top" offset="0" />
 					<left parent="sub_header" anchor="right" offset="30" />
 					<bottom parent="sub_header" anchor="bottom" offset="0" />
