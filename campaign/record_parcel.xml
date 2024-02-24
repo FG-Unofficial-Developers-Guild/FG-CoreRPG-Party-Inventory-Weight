@@ -30,7 +30,7 @@
 			<anchor_content_groupbox_top />
 			<anchor_content_groupbox_bottom />
 			<!-- Total weight -->
-			<basicnumber name="weight">
+			<basicnumber name="parcelweight">
 				<anchored width="30" height="20">
 					<left anchor="left" offset="22" />
 					<bottom anchor="bottom" offset="-20" />
@@ -38,8 +38,8 @@
 				<readonly />
 			</basicnumber>
 			<!-- total weight label -->
-			<label name="weight_label">
-				<anchored to="weight" width="50" height="20">
+			<label name="parcelweight_label">
+				<anchored to="parcelweight" width="50" height="20">
 					<left anchor="right" offset="10" />
 					<bottom anchor="bottom" offset="0" />
 				</anchored>
