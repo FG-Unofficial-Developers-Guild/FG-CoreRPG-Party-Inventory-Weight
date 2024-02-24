@@ -6,6 +6,24 @@
 -->
 
 <root>
+	<windowclass name="ps_inventory_shared" merge="join">
+		<sheetdata>
+			<sub_content_framed_groupbox_top name="sub_header">
+				<anchored>
+					<right anchor="right" offset="-170" />
+				</anchored>
+			</sub_content_framed_groupbox_top>
+			<sub_content_framed_groupbox_top name="sub_header_weight">
+				<anchored >
+					<top parent="sub_header" anchor="top" offset="0" />
+					<left parent="sub_header" anchor="right" offset="30" />
+					<bottom parent="sub_header" anchor="bottom" offset="0" />
+				</anchored>
+				<class>ps_inventory_shared_header_weight</class>
+			</sub_content_framed_groupbox_top>
+		</sheetdata>
+	</windowclass>
+
 	<windowclass name="ps_inventory_shared_items" merge="join">
 		<sheetdata>
 			<label_list_content_string_right name="label_assign">
@@ -20,14 +38,18 @@
 		</sheetdata>
 	</windowclass>
 
-	<windowclass name="ps_inventory_shared_controls" merge="join">
-		<script file="ps/scripts/ps_inventory.lua" />
+	<windowclass name="ps_inventory_shared_header_weight">
+		<margins control="-0,0,0,5" />
+		<script file="ps/scripts/ps_inventoryweight.lua" />
 		<sheetdata>
+			<anchor_content_top />
+			<anchor_content_bottom />
+
 			<!-- Max weight -->
 			<basicnumber name="maxweight">
-				<anchored to="sellpercentage" width="30" height="20">
-					<left />
-					<top anchor="bottom" relation="relative" offset="15" />
+				<anchored width="30" height="17">
+					<left offset="4" />
+					<top offset="12" />
 				</anchored>
 				<script file="ps/scripts/ps_weight_encumbrance.lua" />
 			</basicnumber>
@@ -38,10 +60,7 @@
 
 			<!-- Total weight -->
 			<basicnumber name="totalweight">
-				<anchored to="sellpercentage" width="30" height="20">
-					<left />
-					<top anchor="bottom" relation="relative" offset="15" />
-				</anchored>
+				<anchored to="maxweight" position="right" offset="5" width="30" height="17" />
 				<readonly />
 				<script file="ps/scripts/ps_weight_encumbrance.lua" />
 			</basicnumber>
@@ -49,6 +68,14 @@
 				<anchored to="totalweight" />
 				<static textres="ps_label_totalweight" />
 			</label_fieldtop>
+
+			<label name="totalweight_label">
+				<anchored to="totalweight" width="50" height="20">
+					<left anchor="right" offset="10" />
+					<bottom anchor="bottom" offset="0" />
+				</anchored>
+				<static textres="item_label_weight" />
+			</label>
 		</sheetdata>
 	</windowclass>
 
