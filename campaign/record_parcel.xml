@@ -9,14 +9,28 @@
 	<windowclass name="treasureparcel" merge="join">
 		<script file="campaign/scripts/record_parcel.lua" />
 		<sheetdata>
-			<frame_parcel name="coinframe">
+			<sub_content name="sub_coins">
 				<anchored>
-					<bottom offset="-30" />
+					<bottom anchor="bottom" offset="-75" />
 				</anchored>
-			</frame_parcel>
+			</sub_content>
+			<sub_content name="sub_weight">
+				<anchored>
+					<right anchor="center" offset="-60" />
+					<top parent="sub_coins" anchor="bottom" />
+				</anchored>
+				<class>parcel_weight</class>
+			</sub_content>
+		</sheetdata>
+	</windowclass>
 
+	<windowclass name="parcel_weight">
+		<frame>groupbox</frame>
+		<sheetdata>
+			<anchor_content_groupbox_top />
+			<anchor_content_groupbox_bottom />
 			<!-- Total weight -->
-			<basicnumber name="parcelweight">
+			<basicnumber name="weight">
 				<anchored width="30" height="20">
 					<left anchor="left" offset="22" />
 					<bottom anchor="bottom" offset="-20" />
@@ -24,29 +38,13 @@
 				<readonly />
 			</basicnumber>
 			<!-- total weight label -->
-			<label name="label_parcelweight">
-				<anchored to="parcelweight" width="50" height="20">
-					<left anchor="right" offset="5" />
+			<label name="weight_label">
+				<anchored to="weight" width="50" height="20">
+					<left anchor="right" offset="10" />
 					<bottom anchor="bottom" offset="0" />
 				</anchored>
-				<static textres="ref_label_listweight" />
+				<static textres="item_label_weight" />
 			</label>
-
-			<!--<basicnumber name="parcelvalue">
-				<anchored to="coinframe" width="30" height="20">
-					<right anchor="right" offset="1" />
-					<bottom parent="parcelweight" anchor="bottom" />
-				</anchored>
-				<readonly />
-				<gmvisibleonly />
-			</basicnumber>
-			<label name="label_parcelvalue">
-				<anchored to="parcelvalue" width="50" height="20">
-					<right anchor="left" offset="-5" />
-					<bottom anchor="bottom" offset="0" />
-				</anchored>
-				<static textres="ref_label_listvalue" />
-			</label> -->
 		</sheetdata>
 	</windowclass>
 </root>
