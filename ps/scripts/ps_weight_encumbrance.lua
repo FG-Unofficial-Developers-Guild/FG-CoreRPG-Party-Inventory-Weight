@@ -13,14 +13,14 @@ function onValueChanged()
 		local nTotal = window.totalweight.getValue() or 0
 		local nPercentDmg = nTotal / nMax * 100
 		if nPercentDmg >= 100 then
-			window.totalweight.setColor(ColorManager.COLOR_HEALTH_CRIT_WOUNDS) -- red
+			window.totalweight.setColor(ColorManager.getUIColor("health_wounds_critical")) -- red
 		elseif nPercentDmg >= 50 then
-			window.totalweight.setColor(ColorManager.COLOR_HEALTH_HVY_WOUNDS) -- orange
+			window.totalweight.setColor(ColorManager.getUIColor("health_wounds_heavy")) -- orange
 		else
-			window.totalweight.setColor(ColorManager.COLOR_FULL) -- black
+			window.totalweight.setColor(ColorManager.getUIColor("usage_full")) -- black
 		end
 	else
-		window.totalweight.setColor(ColorManager.COLOR_FULL) -- black
+		window.totalweight.setColor(ColorManager.getUIColor("usage_full")) -- black
 	end
 end
 
